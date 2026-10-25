@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
@@ -22,7 +23,7 @@ import { z } from 'zod';
 export function createApp(env, options = {}) {
   const app = express();
   app.disable('x-powered-by');
-  app.set('trust proxy', 'loopback');
+ app.set('trust proxy', env.NODE_ENV === 'production' ? 1 : 'loopback');
   app.use(
     pinoHttp({
       logger,

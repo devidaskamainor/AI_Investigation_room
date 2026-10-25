@@ -8,7 +8,7 @@ try {
   const env = readEnv();
   await connectDatabase(env.MONGODB_URI);
   await ensureIndexes();
-  const server = createApp(env).listen(env.PORT, '127.0.0.1', () =>
+  const server = createApp(env).listen(env.PORT, '0.0.0.0', () =>
     logger.info({ port: env.PORT }, 'API listening'),
   );
   const stop = () =>

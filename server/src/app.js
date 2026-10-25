@@ -91,7 +91,23 @@ export function createApp(env, options = {}) {
   app.use('/api/v1/demo-cases', demoRoutes(env, options.storage || storageProvider(env)));
   app.use('/api/v1/mysteries/:id', investigationRoutes(options));
   app.use('/api/v1/mysteries/:id', resultsRoutes(options));
-  app.use((_req, _res, next) => next(missing()));
-  app.use(errorHandler);
+  if (env.NODE_ENV === 'production') {
+  const clientDist = resolve(process.cwd(), 'client', 'dist');
+
+  app.use(express.static(clientDist, { index: false }));
+
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api/')) {
+      return next();
+    }
+
+    res.sendFile(resolve(clientDist, 'index.html'), (err) => {
+      if (err) next(err);
+    });
+  });
+}
+
+app.use((_req, _res, next) => next(missing()));
+app.use(errorHandler);
   return app;
 }

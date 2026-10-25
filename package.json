@@ -17,6 +17,7 @@
     "dev:client": "npm run dev --workspace client",
     "start": "node server/src/server.js",
     "worker": "node server/src/worker.js",
+    "start:all": "concurrently -k -n api,worker \"node server/src/server.js\" \"node server/src/worker.js\"",
     "build": "npm run build --workspace client && node scripts/check-client-secrecy.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",

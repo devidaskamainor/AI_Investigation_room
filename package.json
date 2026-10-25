@@ -1,0 +1,71 @@
+{
+  "name": "ai-mystery-room",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "workspaces": [
+    "client"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "concurrently -k -n api,worker,client \"npm:dev:api\" \"npm:dev:worker\" \"npm:dev:client\"",
+    "dev:api": "node --watch server/src/server.js",
+    "dev:worker": "node --watch server/src/worker.js",
+    "dev:client": "npm run dev --workspace client",
+    "start": "node server/src/server.js",
+    "worker": "node server/src/worker.js",
+    "build": "npm run build --workspace client && node scripts/check-client-secrecy.mjs",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:live": "node scripts/live-check.mjs",
+    "stats": "node scripts/stats.mjs",
+    "fixtures:generate": "node scripts/generate-fixtures.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.900.0",
+    "@google/genai": "^1.30.0",
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.8.1",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^8.1.0",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.19.0",
+    "p-limit": "^7.2.0",
+    "pino": "^10.1.0",
+    "pino-http": "^11.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^3.25.76",
+    "zod-to-json-schema": "^3.25.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "^1.56.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.5.0",
+    "jsdom": "^26.1.0",
+    "mongodb-memory-server": "^10.3.0",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4",
+    "vitest": "^3.2.4"
+  }
+}

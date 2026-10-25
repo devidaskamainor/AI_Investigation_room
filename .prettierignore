@@ -1,0 +1,10 @@
+node_modules
+client/dist
+coverage
+spec.md
+specs/SPEC.md
+package-lock.json
+.runtime
+storage
+test-results
+playwright-report

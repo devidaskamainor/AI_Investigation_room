@@ -1,0 +1,13 @@
+{
+  "totalJobs": 0,
+  "finishedJobs": 0,
+  "generationSuccessRate": null,
+  "averageDurationMs": null,
+  "averageRetries": null,
+  "providerErrors": 0,
+  "validationFailures": 0,
+  "blindSolverFailures": 0,
+  "failedJobs": 0,
+  "assets": {},
+  "averageEvidencePerPublishedCase": null
+}

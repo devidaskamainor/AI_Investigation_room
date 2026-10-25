@@ -1,0 +1,2 @@
+Version: 1.0.0
+Image prompts are constructed from the approved per-evidence prompt and the planner's style guide. They are passed to the ImageProvider with the following fixed suffix: Fictional reconstruction; no text, typography, timestamps, brands, logos, real people or graphic content. Literal visual clues must match approved facts. The worker does not ask the model to draw interface overlays or hidden solution metadata.

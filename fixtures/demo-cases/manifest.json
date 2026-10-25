@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "school-trophy",
+    "title": "The Missing Trophy",
+    "difficulty": "easy",
+    "suspectCount": 3,
+    "mysteryType": "theft",
+    "scenario": "The school's championship trophy vanishes from a locked cabinet on the morning of the final. Three staff members were near the hall."
+  },
+  {
+    "slug": "gallery-disappearance",
+    "title": "The Last Exhibition",
+    "difficulty": "medium",
+    "suspectCount": 4,
+    "mysteryType": "disappearance",
+    "scenario": "A painter disappears during her own exhibition. The gallery was full, but nobody saw her leave. Four guests give conflicting accounts."
+  },
+  {
+    "slug": "startup-espionage",
+    "title": "A Breach of Trust",
+    "difficulty": "hard",
+    "suspectCount": 5,
+    "mysteryType": "corporate_espionage",
+    "scenario": "Hours before a start-up launches its product, a rival publishes the exact same design. Five employees had access to different parts of the plans."
+  }
+]
